@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enchanted Auctions: Own the Magic of Legends</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            max-width: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #dfceed;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #8c40c9;
+            border-bottom: 5px outset #562c78;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+          .nav-menu .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Trigger */
+    .nav-menu .dropdown > a {
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* Dropdown Content */
+    .nav-menu .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        top: 100%;
+        left: 0;
+        border-radius: 5px;
+    }
+
+    /* Show dropdown on hover */
+    .nav-menu .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Dropdown Links */
+    .nav-menu .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        margin: 0;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Hover Effect for Dropdown Links */
+    .nav-menu .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+		
+        .cta-button {
+            background-color: #ffd700;
+            color: #562c78;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+		
+		.how-it-works {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .how-it-works h1 {
+            color: #562c78;
+            text-align: center;
+            border-bottom: 3px solid #8c40c9;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f3fc;
+            border-radius: 8px;
+        }
+        .step h2 {
+            color: #8c40c9;
+            margin-bottom: 15px;
+        }
+        .step p {
+            color: #333;
+            line-height: 1.6;
+        }
+		
+		.contact-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .contact-section h1 {
+            color: #562c78;
+            text-align: center;
+            border-bottom: 3px solid #8c40c9;
+            padding-bottom: 10px;
+        }
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .contact-table th, .contact-table td {
+            border: 1px solid #8c40c9;
+            padding: 12px;
+            text-align: left;
+        }
+        .contact-table th {
+            background-color: #f9f3fc;
+            color: #562c78;
+        }
+		 .bid-form-section {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .bid-form-section h1 {
+            color: #562c78;
+            text-align: center;
+            border-bottom: 3px solid #8c40c9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #562c78;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #8c40c9;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            width: auto;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+            width: auto;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8c40c9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #562c78;
+        }
+
+        .footer {
+            background-color: #562c78;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="logo.png" alt="Enchanted Auctions Logo" class="logo">
+			<img src="logo_text _2.png" alt="Enchanted Auctions Logo" width: 150px height: auto >
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                 <div class="dropdown">
+					<a href="#">Regions</a>
+					<div class="dropdown-content">
+						<a href="Acharia_main.html">Acharia</a>
+						<a href="Bloisia_main.html">Bloisia</a>
+						<a href="Cepraunia_main.html">Cepraunia</a>
+						<a href="Eglad_main.html">Eglad</a>
+						<a href="Tufrasal_main.html">Tufrasal</a>
+						<a href="Uscein_main.html">Uscein</a>
+					</div>
+				</div>
+                <a href="Explore_Relics.html">Explore Relics</a>
+                <a href="how_it_works.html">How It Works</a>
+                <a href="About_Us.html">About Us</a>
+                <a href="Contact.html">Contact</a>
+                <a href="form_make_bid.html" class="cta-button">Start Bidding</a>
+            </nav>
+        </header>
+		
+		 <section class="bid-form-section">
+            <h1>Place Your Bid</h1>
+            <form id="bidForm" onsubmit="submitBid(event)">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label>Bidder Type</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="bidder-type" value="individual" required>
+                            Individual
+                        </label>
+                        <label>
+                            <input type="radio" name="bidder-type" value="collector">
+                            Collector
+                        </label>
+                        <label>
+                            <input type="radio" name="bidder-type" value="museum">
+                            Museum Representative
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="relic-name">Relic Name</label>
+                    <select id="relic-name" name="relic-name" required>
+                        <option value="">Select a Relic</option>
+                        <option value="dragon-scale">Ancient Dragon Scale</option>
+                        <option value="wizard-staff">Enchanted Wizard's Staff</option>
+                        <option value="crystal-orb">Mystical Crystal Orb</option>
+                        <option value="other">Other (Specify Below)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="custom-relic">Custom Relic Details (if Other)</label>
+                    <input type="text" id="custom-relic" name="custom-relic" placeholder="Describe the relic if not in the list">
+                </div>
+                <div class="form-group">
+                    <label for="bid-amount">Bid Amount</label>
+                    <input type="number" id="bid-amount" name="bid-amount" min="0" step="0.01" required placeholder="Enter your bid amount">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Contact Email</label>
+                    <input type="email" id="contact-email" name="contact-email" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Contact Phone Number</label>
+                    <input type="tel" id="contact-phone" name="contact-phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label>Preferred Contact Method</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="contact-method" value="email">
+                            Email
+                        </label>
+                        <label>
+                            <input type="checkbox" name="contact-method" value="phone">
+                            Phone
+                        </label>
+                        <label>
+                            <input type="checkbox" name="contact-method" value="post">
+                            Postal Mail
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="additional-notes">Additional Notes</label>
+                    <textarea id="additional-notes" name="additional-notes" rows="4" placeholder="Any additional information about your bid or the relic"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Bid</button>
+            </form>
+        </section>
+		 <script>
+        function submitBid(event) {
+            // Prevent the form from actually submitting
+            event.preventDefault();
+            
+            // Get the relic name
+            const relicName = document.getElementById('relic-name').value;
+            const customRelic = document.getElementById('custom-relic').value;
+            const bidAmount = document.getElementById('bid-amount').value;
+            
+            // Determine which relic to display
+            const displayRelic = relicName === 'other' && customRelic 
+                ? customRelic 
+                : (relicName === 'other' 
+                    ? 'Custom Relic' 
+                    : document.querySelector(`#relic-name option[value="${relicName}"]`).textContent);
+
+            // Show confirmation alert
+            alert(`Congratulations! 
+You have successfully placed a bid on the ${displayRelic}.
+
+Bid Amount: $${bidAmount}
+
+Our team will review your bid and contact you shortly. 
+Thank you for participating in Enchanted Auctions!`);
+        }
+    </script>
+
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#faq">FAQ</a>
+                <a href="#terms">Terms & Conditions</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+            <div class="social-links">
+                <!-- Social media icons would go here -->
+				
+            </div>
+            <p>&copy; 2024 Enchanted Auctions. Where Legends Become Yours.</p>
+        </footer>
+    </div>
+</body>
+</html>
